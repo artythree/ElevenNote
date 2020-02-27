@@ -1,8 +1,10 @@
-﻿using ElevenNote.Models;
+﻿using ElevenNote.Data;
+using ElevenNote.Models;
 using ElevenNote.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -22,14 +24,13 @@ namespace ElevenNote.WebAPI.Controllers
         public IHttpActionResult Post(NoteCreate note)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
+
             var service = CreateNoteService();
+
             if (!service.CreateNote(note))
-            {
                 return InternalServerError();
-            }
+
             return Ok();
         }
         private NoteService CreateNoteService()
