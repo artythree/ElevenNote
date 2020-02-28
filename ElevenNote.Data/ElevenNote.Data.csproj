@@ -166,6 +166,10 @@
     <Compile Include="Migrations\202002271613315_InitialMigration.Designer.cs">
       <DependentUpon>202002271613315_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002272139557_UpdateDB.cs" />
+    <Compile Include="Migrations\202002272139557_UpdateDB.designer.cs">
+      <DependentUpon>202002272139557_UpdateDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -180,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002271613315_InitialMigration.resx">
       <DependentUpon>202002271613315_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002272139557_UpdateDB.resx">
+      <DependentUpon>202002272139557_UpdateDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

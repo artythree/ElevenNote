@@ -39,5 +39,26 @@ namespace ElevenNote.WebAPI.Controllers
             var noteService = new NoteService(userId);
             return noteService;
         }
+        public IHttpActionResult Get(int id)
+        {
+            NoteService noteService = CreateNoteService();
+            var note = noteService.GetNoteById(id);
+            return Ok(note);
+        }
+        public NoteDetail GetNoteById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Notes.Single(e => e.NoteId && e.OwnerId == _userId);
+                return new NoteDetail
+                {
+                    NoteId = entity.NoteId,
+                    Title = entity.Title,
+                    Content = entity.Content,
+                    CreatedUtc = entity.CreatedUtc,
+                    ModifiedUtc = entity.ModifiedUtc
+                };
+            }
+        }
     }
 }
